@@ -48,15 +48,16 @@ Este documento apresenta a resolução integral para o **Sistema de Gestão de C
 
 ### Diagrama de Entidades Relacionais (DER)
 
+---
+title: DER - Sistema de Gestão de Clínica Veterinária
+---
+
 ```mermaid
-
 erDiagram
-    title "DER - Sistema de Gestão de Clí­nica Veterinária"
-
     usuarios {
         int id PK
         varchar nome
-        varchar email UNIQUE
+        varchar email UK
         varchar senha_hash
         varchar perfil
         timestamp criado_em
@@ -65,7 +66,7 @@ erDiagram
     tutores {
         int id PK
         varchar nome
-        varchar cpf_ciptografado
+        varchar cpf_criptografado
         varchar email
         timestamp criado_em
     }
@@ -90,13 +91,12 @@ erDiagram
         varchar servico
         varchar status
         text observacao
-        time
     }
 
     usuarios ||--o{ agendamentos : "agenda/gerencia"
-    tutores ||--o{ pets : "possui (1:N)"
-    tutores ||--o{ agendamentos : "responsavel (1:N)"
-    pets ||--o{ agendamentos : "paciente (1:N)"
+    tutores ||--o{ pets : "possui"
+    tutores ||--o{ agendamentos : "responsavel"
+    pets ||--o{ agendamentos : "paciente"
 ```
 
 ## Banco de Dados - Script de Criação e População
