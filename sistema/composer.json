@@ -1,0 +1,13 @@
+{
+    "name": "malossovet/veterinaria-mvc",
+    "description": "Sistema de gestao para veterinaria MVC",
+    "type": "project",
+    "require": {
+        "php": "8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
